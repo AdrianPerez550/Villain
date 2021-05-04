@@ -1,0 +1,40 @@
+
+
+<ul class="villain">
+  <li *ngFor="let villain1 of villain"
+    [class.selected]="villain1 === selectedVillain1" (click)="onSelect(villain1)">
+      <span class="badge">{{villain1.id}}</span>{{villain1.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedVillain1">
+  <h2> {{selectedVillain1.name | uppercase}}</h2>
+<div><span>id: </span> <span class="badge badge-primary">{{selectedVillain1.id}}</span></div>
+
+  <div>
+    <label for="villain1-name"> Nombre: </label>
+    <input id="villain1-name" [(ngModel)]="selectedVillain1.name" placeholder="name">
+  </div>
+
+  <div>
+    <label for="villain1-base"> Cambio del poder: </label>
+    <input id="villain1-base" [(ngModel)]="selectedVillain1.base" placeholder="base">
+  </div>
+
+
+
+  <div>
+    <label for="villain1-nivel">Aumento: </label>
+    <input id="villain1-nivel"[(ngModel)]="selectedVillain1.aumento" placeholder="aumento">
+
+  </div>
+  <P></P>
+  <div>
+    <button  (click)="sube(selectedVillain1)"> + </button>
+    </div>
+<P></P>
+    <div>
+      <button (click)="baja(selectedVillain1)"> - </button>
+      </div>
+
+</div>
